@@ -1,0 +1,51 @@
+<!DOCTYPE html><html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>پنل مدیریت</title>
+<link rel="stylesheet" href="style.css"/>
+</head>
+<body><div id="gate">در حال بررسی ورود...</div><header>
+<div class="title">📊 پنل مدیریت</div><div class="actions">
+<button class="btn" id="adminTag">مدیر</button>
+<button class="btn" id="logout">خروج</button>
+</div>
+</header><nav>
+<button class="active" data-tab="stats">آمار</button>
+<button data-tab="users">کاربران</button>
+<button data-tab="chat">چت عمومی</button>
+<button data-tab="treasure">گنج‌ها</button>
+</nav><section id="tab-stats" class="panel">
+<h2>📊 آمار کلی</h2><div class="grid">
+<div class="stat">
+<div class="n" id="s-users">—</div>
+<div class="l">کل کاربران</div>
+</div><div class="stat">
+<div class="n" id="s-banned">—</div>
+<div class="l">مسدود شده</div>
+</div><div class="stat" style="grid-column:1/-1">
+<div class="n" id="s-msgs">—</div>
+<div class="l">پیام‌ها</div>
+</div>
+</div><div class="refresh">
+<button id="refresh">به‌روزرسانی</button>
+</div>
+</section><section id="tab-users" class="panel hidden">
+<h2>👥 کاربران</h2><table>
+<thead>
+<tr>
+<th>نام</th>
+<th>سکه</th>
+<th>کاپ</th>
+<th>لول</th>
+</tr>
+</thead><tbody id="users-body"></tbody>
+</table>
+</section><section id="tab-chat" class="panel hidden">
+<h2>💬 چت عمومی</h2>
+<p style="color:#8b93a7">به‌زودی...</p>
+</section><section id="tab-treasure" class="panel hidden">
+<h2>💎 گنج‌ها</h2>
+<p style="color:#8b93a7">به‌زودی...</p>
+</section><script src="admin.js"></script></body>
+  </html>
