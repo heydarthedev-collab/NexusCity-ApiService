@@ -1,9 +1,11 @@
+const API_URL = 'https://nexuscityapiserviceir.zeus-9dhmbw.workers.dev';
+
 const token=localStorage.getItem('admin_token');
 
-if(!token)location.href='/';
+if(!token)location.href='index.html';
 
 async function api(path,opts={}){
-const r=await fetch(path,{
+const r=await fetch(API_URL+path,{
 ...opts,
 headers:{
 ...(opts.headers||{}),
@@ -14,8 +16,8 @@ headers:{
 
 if(r.status===401){
 localStorage.removeItem('admin_token');
-location.href='/';
-return null
+location.href='index.html';
+return null;
 }
 
 return r.json();
@@ -62,7 +64,7 @@ tb.innerHTML=
 }
 
 document.getElementById('refresh').onclick=()=>{
-loadStats()
+loadStats();
 };
 
 document.getElementById('logout').onclick=async()=>{
@@ -71,7 +73,7 @@ method:'POST'
 });
 
 localStorage.removeItem('admin_token');
-location.href='/';
+location.href='index.html';
 };
 
 document.querySelectorAll('nav button').forEach(b=>{
@@ -89,12 +91,12 @@ document.getElementById(
 ).classList.remove('hidden');
 
 if(b.dataset.tab==='users'){
-  loadUsers()
+  loadUsers();
 }
 
 };
 });
 
 loadStats().then(()=>{
-document.getElementById('gate').style.display='none'
+document.getElementById('gate').style.display='none';
 });
